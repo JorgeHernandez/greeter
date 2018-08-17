@@ -1,8 +1,4 @@
-//Greeter.js
-"use strict";
-
-//iife
-(function(global, $){
+;(function(global, $){
 	//'new' an object
 	var Greeter = function(firstname, lastname, language){
 		//constructor

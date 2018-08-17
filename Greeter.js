@@ -40,12 +40,40 @@
 			},
 			formalGreeting: function(){
 				return formalGreetings[this.language]+', '+this.fullName();
+			},
+			greet: function(formal){
+				var msg;
+				//if formal is not null
+				if(formal){
+					msg = this.formalGreeting();
+				}else{
+					msg = this.greeting();
+				}
+				if(console){
+					console.log(msg);
+				}
+				return this;//this refers to the  calling object at the execution time 
+				//and makes these methods chainable
+			},
+			log: function(){
+				if (console){
+					console.log(logMessages[this.language]+': '+this.fullName());
+				}
+				return this; //chainable!
+			},
+			setLang: function(lang){
+				this.language = lang;
+				this.validate();
+				return this; //chainable
 			}
 		};
 
 		//init
 		Greeter.init(firstname, lastname, language){
+			//WARNING: (this) when it goes up on execution chain, it catches window object instead some object 
 			var self = this;//TO DO: use a Call intead of self
+
+
 			//default values
 			self.firstname = firstname || '';
 			self.lastname = lastname || '';

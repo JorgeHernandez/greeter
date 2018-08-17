@@ -65,6 +65,16 @@
 				this.language = lang;
 				this.validate();
 				return this; //chainable
+			},
+			HTMLgreeting: function(selector, formal){
+				if(!$){
+					throw "JQuery not found";
+				}
+				if(!selector){
+					throw "Missing JQuery selector";
+				}
+				$(selector).html(this.greet(formal));
+				return this;
 			}
 		};
 

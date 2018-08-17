@@ -3,23 +3,27 @@
 
 //iife
 (function(global, $){
-	//code
+	//'new' an object
 	var Greeter = function(firstname, lastname, language){
 		//constructor
 		return new Greeter.init(firstname, lastname, language);
 		
+		//these vars are not directly accesible
 		var supportedLangs = ['en', 'es'];
 
+		//informal greetings
 		var greetings = {
 			en: 'Hello',
 			es: 'Hola'
 		}
 
+		//formal greetings
 		var formalGreetings = {
 			en: 'Greetings',
 			es: 'Saludos'
 		}
 
+		//logger messages
 		var logMessages = {
 			en: 'Logged In',
 			es: 'Inició Sesión'
@@ -78,7 +82,7 @@
 			}
 		};
 
-		//init
+		//init: the actual object is creted here, allowing us to 'new' an object without calling new
 		Greeter.init(firstname, lastname, language){
 			//WARNING: (this) when it goes up on execution chain, it catches window object instead some object 
 			var self = this;//TO DO: use a Call intead of self
@@ -91,7 +95,7 @@
 		}
 
 		//all objects created by init will point to Greeter prototype
-		Greeter.init.prototype = Greeter.prototype;
+		Greeter.init.prototype = Greeter.prototype;//trick borrowed to jquery :)
 
 	}
 

@@ -1,5 +1,5 @@
 ;(function(global, $){
-	//'new' an object
+	//'new' an object :)
 	var Greeter = function(firstname, lastname, language){
 		//constructor
 		return new Greeter.init(firstname, lastname, language);
